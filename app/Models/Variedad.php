@@ -21,4 +21,13 @@ class Variedad extends Model
         'codigo',
         'variedad',
     ];
+
+    public function hortaliza()
+    {
+        return $this->belongsTo(Hortaliza::class);
+    }
+
+    public function siembras(){
+        return $this->hasMany(Siembra::class);
+    }
 }

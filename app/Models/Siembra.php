@@ -15,4 +15,17 @@ class Siembra extends Model
         'dimension',
         'variedad_id',
     ];    
+
+    public function entrega(){
+        return $this->belongsTo(Entrega::class);
+    }
+
+    public function cosecha(){
+        return $this->hasOne(Cosecha::class);
+    }
+
+    public function variedad(){
+        return $this->belongsTo(Variedad::class);
+    }
+
 }

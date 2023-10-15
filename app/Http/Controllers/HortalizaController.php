@@ -3,18 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Comunario;
 
-
-class ComunarioController extends Controller
+class HortalizaController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $comunarios=Comunario::all();
-        return view('pages.comunarios.index',compact('comunarios'));
+        //
     }
 
     /**
@@ -65,18 +62,22 @@ class ComunarioController extends Controller
         //
     }
 
-    public function comunario()
-    {
-        return view('pages.index');
+    public function buscarVariedad(Request $request){
+        
+        if($request->ajax()) {
+           
+            
+            $id=$request->id;
+            
+            if($id != 'null'){   
+                $valid_data = [];
+                
+                    $data = $variedades=\App\Models\Variedad::where('hortaliza_id',$id)->get();
+                    foreach ($data as $row) {
+                        $valid_data[] = ['id' => $row->id, 'variedad' =>$row->variedad];
+                     }               
+            }
+        }    
+        return response()->json($valid_data);        
     }
-
-    public function buscarComunario(Request $request)
-    {
-        $comunario=Comunario::where('ci',$request->ci)->first();
-        $ci=base64_encode($comunario->ci);
-        return redirect()->route('siembra.form',[$ci]);  
-
-    }
-
-   
 }

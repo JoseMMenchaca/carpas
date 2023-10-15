@@ -13,4 +13,10 @@ class Hortaliza extends Model
         'codigo',
         'nombre',
     ];
+
+
+    public function variedades()
+    {
+        return $this->hasMany(Variedad::class);
+    }
 }

@@ -16,4 +16,9 @@ class Carpa extends Model
         'dimension',
         'tipo_techo',
     ];
+
+
+    public function entregas(){
+        return $this->hasMany(Entrega::class);
+    }
 }

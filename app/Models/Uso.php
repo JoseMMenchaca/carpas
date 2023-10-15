@@ -16,4 +16,8 @@ class Uso extends Model
         'consumo',
         'precio_venta',
     ];
+
+    public function cosecha(){
+        return $this->belongsTo(Cosecha::class);
+    }
 }

@@ -13,5 +13,11 @@ class Comunario extends Model
         'nombre',
         'ci',
         'lugar',
+        'fono',
+        'edad',
     ];
+
+    public function entregas(){
+        return $this->hasMany(Entrega::class);
+    }
 }
