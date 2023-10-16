@@ -20,10 +20,11 @@ class PageController extends Controller
             'fecha_siembra' =>      $request->fecha,
             'dimension'     =>      $request->resultado,
             'variedad_id'   =>      $request->variedad,
+            'precio_semilla'=>      $request->precio,
             'estado'        =>      'P', 
         ]);
         
-        return redirect()->route('siembra.form',[base64_encode($ci)]);
+        return redirect()->route('siembra.form',[$ci]);
     }
 
     public function cosecha($ci){
@@ -66,9 +67,11 @@ class PageController extends Controller
         
         \App\Models\Uso::create([
             'cosecha_id'    =>  $request->id,
-            'venta'  =>  $request->peso,
-            'consumo' =>  $request->consumo,
-            'precio_venta' =>  $request->precio,
+            'peso_venta'  =>  $request->peso,
+            'peso_consumo' =>  $request->consumo,
+            'precio_venta'  =>  $request->vendido_precio,
+            'precio_consumo'  =>  $request->consumo_precio,
+            'precio_total' =>  $request->precio,
             'fecha' =>  $request->fecha,
         ]);
         return redirect()->route('usos.index',[$ci]);

@@ -65,38 +65,45 @@
           <div class="mb-3 row">
             <label for="peso" class="col-sm-4 col-form-label">Peso vendido:</label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" id="peso" name="peso">
-            </div>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" id="peso" name="peso">
+                    <span class="input-group-text">Precio</span>
+                    <input type="text" class="form-control" id="vendido_precio" name="vendido_precio" readonly>
+                    <span class="input-group-text">Bs.</span>      
+                </div>
           </div>
 
           <div class="mb-3 row">
             <label for="unidad" class="col-sm-4 col-form-label">Consumo:</label>
             <div class="col-sm-8">
-                <input type="text" class="form-control" id="consumo" name="consumo" value="0" readonly>
+              <div class="input-group mb-3">
+                  <input type="text" class="form-control" id="consumo" name="consumo" value="0" readonly>
+                  <span class="input-group-text">Precio</span>
+                  <input type="text" class="form-control" id="consumo_precio" name="consumo_precio" readonly>
+                  <span class="input-group-text">Bs.</span>      
               </div>
+            </div>
           </div>
 
           <div class="mb-3 row">
             <label for="unidad" class="col-sm-4 col-form-label">Peso Total:</label>
             <div class="col-sm-8">
-                <input type="text" class="form-control" id="total" name="total" value="0" readonly>
-              </div>
+              <div class="input-group mb-3">
+                  <input type="text" class="form-control" id="total" name="total" value="0" readonly>
+                  <span class="input-group-text">Precio</span>
+                  <input type="text" class="form-control" id="precio" name="precio">
+                  <span class="input-group-text">Bs.</span>      
+                </div>
+            </div>
           </div>
 
-          <div class="mb-3 row">
-            <label for="unidad" class="col-sm-4 col-form-label">Precio Venta Total:</label>
-            <div class="col-sm-8">
-                <input type="text" class="form-control" id="precio" name="precio">
-              </div>
-          </div>
-          <div class="d-grid gap-2 col-6 mx-auto">
-            <button class="btn btn-primary" type="submit">Guardar</button>
-          </div>
+          
+
 
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-primary">Guardar</button>
+          <button type="submit" class="btn btn-primary">Guardar</button>
         </div>
       </form>
       </div>
@@ -122,6 +129,14 @@
             total=$('#total').val();
             $('#consumo').val(total-peso);
         });
+    $('#precio').keyup(function(){
+        total=$('#total').val();
+        precio=$('#precio').val();
+        peso=$('#peso').val();
+        consumo=$('#consumo').val();
+        $('#vendido_precio').val((precio/total)*peso);
+        $('#consumo_precio').val((precio/total)*consumo);
+    });
   </script>
 
 @endsection

@@ -68,18 +68,19 @@
                 <option value="Kg">Kilogramo</option>
                 <option value="@">Arroba</option>
                 <option value="Cuartilla">Cuartilla</option>
+                <option value="Amarro">Amarro</option>
+                <option value="Mano">Mano</option>
+                <option value="Manojo">Manojo</option>
+                <option value="Monton">Montón</option>
               </select>
             </div>
           </div>
 
-          <div class="d-grid gap-2 col-6 mx-auto">
-            <button class="btn btn-primary" type="submit">Guardar</button>
-          </div>
-
+          
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-primary">Guardar</button>
+          <button type="submit" class="btn btn-primary">Guardar</button>
         </div>
       </form>
       </div>

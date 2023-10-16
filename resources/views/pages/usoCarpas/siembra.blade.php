@@ -33,6 +33,13 @@
           </div>
 
           <div class="mb-3 row">
+            <label for="precio" class="col-sm-2 col-form-label">Precio de semilla:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="precio" name="precio" >
+            </div>
+          </div>
+
+          <div class="mb-3 row">
             <label for="dimension" class="col-sm-2 col-form-label">Dimensión:</label>
             <div class="col-sm-5">
 

@@ -12,9 +12,11 @@ class Uso extends Model
     protected $fillable = [
         'cosecha_id',
         'fecha',
-        'venta',
-        'consumo',
+        'peso_venta',
         'precio_venta',
+        'peso_consumo',
+        'precio_consumo',
+        'precio_total',
     ];
 
     public function cosecha(){

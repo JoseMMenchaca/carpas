@@ -35,6 +35,11 @@ Route::middleware('auth')->group(function () {
 Route::prefix('admin')->group(function () {
     Route::resource('carpas',CarpaController::class);
     Route::resource('comunarios',ComunarioController::class);
+
+
+    Route::prefix('reportes')->group(function(){
+        Route::get('/carpas',[CarpaController::class,'entregaPdf'])->name('carpas.report');
+    });
 });
 Route::prefix('datos')->group(function(){
     Route::get('/',[ComunarioController::class,'comunario'])->name('comunario.index.busqueda');

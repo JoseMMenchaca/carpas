@@ -13,6 +13,7 @@ class Siembra extends Model
         'entrega_id',
         'fecha_siembra',
         'dimension',
+        'precio_semilla',
         'variedad_id',
     ];    
 

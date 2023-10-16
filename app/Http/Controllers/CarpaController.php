@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Carpa;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class CarpaController extends Controller
 {
@@ -73,4 +74,12 @@ class CarpaController extends Controller
     {
         //
     }
+
+    public function entregaPdf(){
+        $comunarios=\App\Models\Comunario::all();
+        $pdf = PDF::loadview('reports.carpas',compact('comunarios'));
+        
+        return $pdf->stream();
+    }
+        
 }
